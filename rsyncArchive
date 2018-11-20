@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#script to open afp connection to file server and upload local user data to a backup volume. 
+#lines 16/17 is included to clear user credentials
+USERNAME=''
+PASSWORD=''
+
+echo "Username:"
+read -s USERNAME
+echo "Password:"
+read -s PASSWORD
+open afp://$USERNAME:$PASSWORD@[server ip address]/User_Archives
+
+rsync -arvp --progress /Users/$USER/ /Volumes/[backup volume]/$USER --exclude=".*" --exclude Library
+
+USERNAME=''
+PASSWORD=''
