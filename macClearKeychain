@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#one liner to clear out a cached network on a mac in case of expired AD credential, confirmed on 10.10->10.13
+
+security delete-generic-password -l "[network name]"
+
+echo "
+
+
+
+
+_______________________________
+
+Please click on the wireless bars along the top of your screen, select [network name] and
+sign in with your username and new password.
+_______________________________
+
+
+
+
+"
